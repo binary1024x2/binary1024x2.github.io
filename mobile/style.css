@@ -1,0 +1,37 @@
+@import url(./assets/animations.css);
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --frame-color: #0c0c0c;
+    --background: #111111;
+    --power-light-color: #b90000;
+    --power-light-glow: #cc0000;
+    --band-background: #1d1d1d;
+    --band-highlight: #7c1046;
+    --content-background: #000000;
+    --text-color: #fcfcfc;
+    --power-light-off-color: #000;
+    --label-color: #a8a8a8;
+    --silver-strip-color: #535353;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: 'VT323', monospace;
+    font-size: 30px;
+}
+
+a {
+    text-decoration: underline;
+    color: var(--text-color);
+}
+
+.container {
+    padding: 12px;
+}

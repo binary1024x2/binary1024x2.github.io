@@ -1,0 +1,119 @@
+@keyframes flicker {
+    0% {
+      opacity: 0.7256215759;
+    }
+    5% {
+      opacity: 0.7562732962;
+    }
+    10% {
+      opacity: 0.8636118943;
+    }
+    15% {
+      opacity: 0.6443795825;
+    }
+    20% {
+      opacity: 0.8370519502;
+    }
+    25% {
+      opacity: 0.2012303179;
+    }
+    30% {
+      opacity: 0.6010381561;
+    }
+    35% {
+      opacity: 0.374346609;
+    }
+    40% {
+      opacity: 0.6475340593;
+    }
+    45% {
+      opacity: 0.8486275837;
+    }
+    50% {
+      opacity: 0.6215524543;
+    }
+    55% {
+      opacity: 0.5633436246;
+    }
+    60% {
+      opacity: 0.104095469;
+    }
+    65% {
+      opacity: 0.7337446546;
+    }
+    70% {
+      opacity: 0.8941242198;
+    }
+    75% {
+      opacity: 0.8845067906;
+    }
+    80% {
+      opacity: 0.7732490019;
+    }
+    85% {
+      opacity: 0.4735213959;
+    }
+    90% {
+      opacity: 0.7170943075;
+    }
+    95% {
+      opacity: 0.7946211127;
+    }
+    100% {
+      opacity: 0.7464295346;
+    }
+}
+
+@keyframes turn-on {
+    0% {
+      transform: scale(1, 0.8) translate3d(0, 0, 0);
+      -webkit-filter: brightness(30);
+      filter: brightness(30);
+      opacity: 1;
+    }
+    3.5% {
+      transform: scale(1, 0.8) translate3d(0, 100%, 0);
+    }
+    3.6% {
+      transform: scale(1, 0.8) translate3d(0, -100%, 0);
+      opacity: 1;
+    }
+    9% {
+      transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+      -webkit-filter: brightness(30);
+      filter: brightness(30);
+      opacity: 0;
+    }
+    11% {
+      transform: scale(1, 1) translate3d(0, 0, 0);
+      -webkit-filter: contrast(0) brightness(0);
+      filter: contrast(0) brightness(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1, 1) translate3d(0, 0, 0);
+      -webkit-filter: contrast(1) brightness(1.2) saturate(1.3);
+      filter: contrast(1) brightness(1.2) saturate(1.3);
+      opacity: 1;
+    }
+}
+
+@keyframes turn-off {
+    0% {
+      transform: scale(1, 1.3) translate3d(0, 0, 0);
+      -webkit-filter: brightness(1);
+      filter: brightness(1);
+      opacity: 1;
+    }
+    60% {
+      transform: scale(1.3, 0.001) translate3d(0, 0, 0);
+      -webkit-filter: brightness(10);
+      filter: brightness(10);
+    }
+    100% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: scale(0, 0.0001) translate3d(0, 0, 0);
+      -webkit-filter: brightness(50);
+      filter: brightness(50);
+    }
+}
