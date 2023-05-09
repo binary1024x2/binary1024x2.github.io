@@ -1,21 +1,12 @@
-@import url(./assets/animations.css);
-
 * {
     box-sizing: border-box;
 }
 
 :root {
-    --frame-color: #0c0c0c;
-    --background: #111111;
-    --power-light-color: #b90000;
-    --power-light-glow: #cc0000;
-    --band-background: #1d1d1d;
-    --band-highlight: #7c1046;
-    --content-background: #000000;
     --text-color: #fcfcfc;
-    --power-light-off-color: #000;
-    --label-color: #a8a8a8;
-    --silver-strip-color: #535353;
+    --switch-border: #58525b;
+    --switch-background: #0d0d0d;
+    --switch-toggle-box: #b10000;
 }
 
 html, body {
@@ -34,4 +25,91 @@ a {
 
 .container {
     padding: 12px;
+}
+
+.m-content-title {
+    font-size: 60px;
+    display: block;
+    text-align: center;
+}
+
+.m-content-text {
+    display: block;
+    margin: 8px 0px;
+    padding: 0px 8px;
+}
+
+.m-lang-checkbox {
+    display: none;
+}
+
+.m-lang-checkbox:checked + .m-lang-switch > .m-lang-toggle::before {
+    left: 16px;
+    transition: left 0.3s ease;
+}
+
+.m-lang-switch {
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.m-lang-switch::before {
+    content: url(../assets/cr.png);
+    display: inline;
+    position: relative;
+    top: -8px;
+}
+
+.m-lang-switch::after {
+    content: url(../assets/us.png);
+    display: inline;
+    position: relative;
+    top: -8px;
+}
+
+.m-lang-toggle {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 100%;
+    border: 2px solid var(--switch-border);
+    background-color: var(--switch-background);
+}
+
+.m-lang-toggle::before {
+    content: "";
+    width: 16px;
+    height: 17px;
+    margin: 2px;
+    background-color: var(--switch-toggle-box);
+    position: absolute;
+    display: block;
+    left: 0;
+    transition: left 0.3s ease;
+}
+
+.m-lang-checkbox ~ [data-lang=en], 
+.m-lang-checkbox ~ * [data-lang=en] {
+    display: block !important;
+}
+
+.m-lang-checkbox ~ [data-lang=es], 
+.m-lang-checkbox ~ * [data-lang=es] {
+    display: none !important;
+}
+
+.m-lang-checkbox:checked ~ [data-lang=es], 
+.m-lang-checkbox:checked ~ * [data-lang=es] {
+    display: block !important;
+}
+
+.m-lang-checkbox:checked ~ [data-lang=en], 
+.m-lang-checkbox:checked ~ * [data-lang=en] {
+    display: none !important;
 }

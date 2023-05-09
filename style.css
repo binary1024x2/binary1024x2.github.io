@@ -10,8 +10,8 @@
     --background: #111111;
     --power-light-color: #b90000;
     --power-light-glow: #cc0000;
-    --band-background: #1d1d1d;
-    --band-highlight: #7c1046;
+    --band-background: #0c0c0c;
+    --band-highlight: #ff76d8;
     --content-background: #000000;
     --text-color: #fcfcfc;
     --power-light-off-color: #000;
@@ -63,14 +63,35 @@ a {
     flex-direction: row;
 }
 
+.tv-side-band::before {
+    content: "";
+    background-image: linear-gradient(#000, #f000);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+}
+
+.tv-side-band::after {
+    content: "";
+    background-image: linear-gradient(#f000, #000);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+}
+
 .tv-side-band-inner-pink {
-    background-color: var(--band-highlight);
-    width: 25%;
+    animation: pink-stripe 6s linear infinite;
+    animation-fill-mode: forwards;
+    width: 10%;
 }
 
 .tv-side-band-inner-black {
     background-color: var(--band-background);
-    width: 50%;
+    width: 90%;
 }
 
 .tv-speaker {
@@ -322,4 +343,99 @@ a {
     display: block;
     margin: 8px 0px;
     padding: 0px 8px;
+}
+
+.tv-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tv-eye {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 75px;
+    background-color: var(--power-light-color);
+    box-shadow: 0 0 30px 5px var(--power-light-glow);
+}
+
+.tv-eye[data-eye=left] {
+    left: calc(50% - 250px);
+}
+
+.tv-eye[data-eye=right] {
+    left: calc(50% + 100px);
+}
+
+.tv-eye[data-looking=top] {
+    top: calc(50% - 25px)
+}
+
+.tv-eye[data-looking=bottom] {
+    top: calc(50% + 25px)
+}
+
+.tv-eye[data-eye=left][data-looking=left] {
+    left: calc(50% - 250px - 25px)
+}
+
+.tv-eye[data-eye=right][data-looking=left] {
+    left: calc(50% + 100px - 25px)
+}
+
+.tv-eye[data-eye=left][data-looking=right] {
+    left: calc(50% - 250px + 25px)
+}
+
+.tv-eye[data-eye=right][data-looking=right] {
+    left: calc(50% + 100px + 25px)
+}
+
+.tv-face-button {
+    display: none;
+}
+
+.tv-face-button + label {
+    position: absolute;
+    z-index: 9999;
+    font-family: sans-serif;
+    right: 0px;
+    bottom: 120px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--label-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+.tv-face-button + label::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    right: -6px;
+    width: 5px;
+    height: 30px;
+    background-color: #272727;
+    z-index: 999;
+}
+
+.tv-face-button:checked ~ .tv-screen-container > .tv-screen > .tv-screen-content[data-content=face] {
+    display: block;
+}
+
+.tv-face-button:checked ~ .tv-screen-container > .tv-screen > .tv-screen-content[data-content=text] {
+    display: none;
+}
+
+.tv-face-button ~ .tv-screen-container > .tv-screen > .tv-screen-content[data-content=text] {
+    display: block;
+}
+
+.tv-face-button ~ .tv-screen-container > .tv-screen > .tv-screen-content[data-content=face] {
+    display: none;
 }

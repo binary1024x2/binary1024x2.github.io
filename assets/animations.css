@@ -117,3 +117,27 @@
       filter: brightness(50);
     }
 }
+
+@keyframes pink-stripe {
+  0% {
+    background-color: #ffa6fc;
+  }
+  16.6% {
+    background-color: #ff94e0;
+  }
+  33.3% {
+    background-color: #ff76d8;
+  }
+  49.9% {
+    background-color: #ff59c7;
+  }
+  66.6% {
+    background-color: #ff76d8;
+  }
+  83.3% {
+    background-color: #ff94e0;
+  }
+  100% {
+    background-color: #ffa6fc;
+  }
+}
